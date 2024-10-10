@@ -69,6 +69,9 @@
           <a class="navbar-item" href="https://luo-ziyuan.github.io/copyrnerf/">
             CopyRNeRF: Protecting the CopyRight of Neural Radiance Fields
           </a>
+          <a class="navbar-item" href="https://qsong2001.github.io/NeRFProtector/">
+            Protecting NeRFs’ Copyright via Plug-and-Play Watermarking Base Model
+          </a>
         </div>
       </div>
     </div>
@@ -84,7 +87,7 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images<br>
             <small>
-              <span style="font-size: 60%;">ECCV 2024</span>
+              <span style="font-size: 60%;">NeurIPS 2024</span>
             </small>
           </h1>
           <div class="is-size-5 publication-authors">
@@ -161,37 +164,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-Neural Radiance Fields (NeRFs) have become a key method for 3D scene representation. With the rising prominence and influence of NeRF, safeguarding its intellectual property has become increasingly important. This paper introduces a Plug-and-Play method to protect NeRF's copyright during its creation. We propose utilizing a pre-trained watermarking base model, enabling NeRF creators to embed binary messages directly while creating their NeRF. Our Plug-and-Play property ensures that NeRF creators can flexibly choose NeRF variants without excessive modifications. Leveraging our newly designed progressive distillation, we demonstrate performance on par with several leading-edge neural rendering methods.
+Single-view 3D reconstruction methods like Triplane Gaussian Splatting (TGS) have enabled high-quality 3D model generation from just a single image input within seconds. However, this capability raises concerns about potential misuse, where malicious users could exploit TGS to create unauthorized 3D models from copyrighted images. To prevent such infringement, we propose a novel image protection approach that embeds invisible geometry perturbations, termed ``geometry cloaks'', into images before supplying them to TGS. These carefully crafted perturbations encode a customized message that is revealed when TGS attempts 3D reconstructions of the cloaked image. Unlike conventional adversarial attacks that simply degrade output quality, our method forces TGS to fail the 3D reconstruction in a specific way - by generating an identifiable customized pattern that acts as a watermark. This watermark allows copyright holders to assert ownership over any attempted 3D reconstructions made from their protected images. Extensive experiments have verified the effectiveness of our geometry cloak. 
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
-    <!-- Framework. -->
-    <div class="column is-centered has-text-centered">
-      <h2 class="title is-3">Framework</h2>
-    </div>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <section class="hero is-light is-small">
-          <div class="hero-body">
-            <div class="container">
-                <div style="text-align: center;">
-                  <img src="eccv-framework_v2.png" alt="Figure 1"  width="75%"/>
-                </div>
-                <div class="content has-text-justified">
-                  <p>
-
-                    Our Plug-and-Play method to watermark NeRF during its creation. (1) Building a watermarking base model: The watermarking base model \( \mathcal{F} \) can be sourced from a third party. We implement a HiDDeN framework to get the pre-trained message extractor as our watermarking base model \( \mathcal{F} \). During the training, the encoder \( \mathcal{E} \) encodes a randomly selected 48-kit message \( \mathbf{m} \) and cover image \( \mathbf{I}_o \) and outputs a watermarked image \( \mathbf{I}_{en} \). Then the message extractor \( \mathcal{F} \) extracts embedded message \( \hat{\mathbf{m}} \) from the watermarked image. Message encoder \( \mathcal{E} \) is discarded after building watermarking base model \( \mathcal{F} \). (2) NeRF creation with message distillation: NeRF creators first fix a copyright message \( \mathbf{m} \), then employ this base model \( \mathcal{F} \) to embed selected watermarks to NeRFs during the creation process via Progressive Global Rendering (PGR) and message distillation. When the optimization of NeRF is finalized, creators immediately obtain a watermarked NeRF. (3) Extracting watermark: Subsequently, they can utilize the base model \( \mathcal{F} \) to retrieve binary watermarks from the rendered images, asserting their ownership.
-                  </p>
-                </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-    <!--/ Paper framework -->
 
   </div>
 </section>
@@ -230,6 +209,7 @@ Neural Radiance Fields (NeRFs) have become a key method for 3D scene representat
       </div>
     </div>
   </div>
+  
 </footer>
 
 </body>
