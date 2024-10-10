@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="CopyRNeRF: Protecting the CopyRight of Neural Radiance Fields">
-  <meta name="keywords" content="CopyRNeRF, NeRF, watermarking">
+        content="Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images">
+  <meta name="keywords" content="NeRF, watermarking">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CopyRNeRF: Protecting the CopyRight of Neural Radiance Fields</title>
+  <title>Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images</title>
 
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -27,6 +27,21 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
   <script src="./static/js/video_comparison.js"></script>
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+  
 </head>
 <body>
 
@@ -40,7 +55,7 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://luo-ziyuan.github.io/">
+      <a class="navbar-item" href="https://qsong2001.github.io">
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
@@ -53,9 +68,6 @@
         <div class="navbar-dropdown">
           <a class="navbar-item" href="https://luo-ziyuan.github.io/copyrnerf/">
             CopyRNeRF: Protecting the CopyRight of Neural Radiance Fields
-          </a>
-          <a class="navbar-item" href="https://luo-ziyuan.github.io/Imaging-Interiors/">
-            Imaging Interiors: An Implicit Solution to Electromagnetic Inverse Scattering Problems
           </a>
         </div>
       </div>
@@ -70,18 +82,18 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">CopyRNeRF: Protecting the CopyRight of Neural Radiance Fields<br>
+          <h1 class="title is-1 publication-title">Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images<br>
             <small>
-              <span style="font-size: 60%;">ICCV 2023</span>
+              <span style="font-size: 60%;">ECCV 2024</span>
             </small>
           </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
+              <a href="https://qsong2001.github.io/">Qi Song</a><sup>1, 2</sup>,</span>
+            <span class="author-block">
               <a href="https://luo-ziyuan.github.io/">Ziyuan Luo</a><sup>1, 2</sup>,</span>
             <span class="author-block">
-              <a href="https://tsingqguo.github.io/">Qing Guo</a><sup>3</sup>,</span>
-            <span class="author-block">
-              Ka Chun Cheung</a><sup>2, 4</sup>,</span>
+              Ka Chun Cheung</a><sup>2</sup>,</span>
             <span class="author-block">
               Simon See</a><sup>2</sup>,</span>
             <span class="author-block">
@@ -89,11 +101,9 @@
             </span>
           </div>
 
-          <div class="is-size-6 publication-authors">
+          <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup> Department of Computer Science, Hong Kong Baptist University</span><br>
             <span class="author-block"><sup>2</sup> NVIDIA AI Technology Center, NVIDIA</span><br>
-            <span class="author-block"><sup>3</sup> IHPC and CFAR, Agency for Science, Technology and Research, Singapore</span><br>
-            <span class="author-block"><sup>4</sup> Department of Mathematics, Hong Kong Baptist University</span><br>
             <span class="author-block"><sup>*</sup> Corresponding author</span>
           </div>
 
@@ -101,7 +111,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="http://arxiv.org/abs/2307.11526"
+                <a href="https://arxiv.org/abs/2407.07735"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -113,12 +123,12 @@
               <!-- Code Link. -->
               <span class="tooltip">
               <span class="link-block">
-                <a href="https://github.com/luo-ziyuan/CopyRNeRF-code/"
+                <a href="https://github.com/qsong2001/NeRFProtector-code"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (released)</span>
                   </a>
               <!--/ Code Link. -->
             </div>
@@ -130,38 +140,35 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
+
+<!-- <section class="section">
+<!--   <div class="container is-max-desktop">
+                
     <!-- Figure_1. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div style="text-align: center;">
-          <img src="assets/fig_1.png" alt="Figure 1"  width="60%"/>
+          <img src="eccv-intro.png" alt="Figure 1"  width="60%"/>
         </div>
       </div>
     </div>
     <!--/ Figure_1. -->
-    
+
+                
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Neural Radiance Fields (NeRF) have the potential to be a major representation of media. Since training a
-            NeRF has never been an easy task, the protection of its model copyright should be a priority. In this paper,
-            by analyzing the pros and cons of possible copyright protection solutions, we propose to protect the
-            copyright of NeRF models by replacing the original color representation in NeRF with a watermarked color
-            representation. Then, a distortion-resistant rendering scheme is designed to guarantee robust message
-            extraction in 2D renderings of NeRF. Our proposed method can directly protect the copyright of NeRF models
-            while maintaining high rendering quality and bit accuracy when compared among optional solutions.
+Neural Radiance Fields (NeRFs) have become a key method for 3D scene representation. With the rising prominence and influence of NeRF, safeguarding its intellectual property has become increasingly important. This paper introduces a Plug-and-Play method to protect NeRF's copyright during its creation. We propose utilizing a pre-trained watermarking base model, enabling NeRF creators to embed binary messages directly while creating their NeRF. Our Plug-and-Play property ensures that NeRF creators can flexibly choose NeRF variants without excessive modifications. Leveraging our newly designed progressive distillation, we demonstrate performance on par with several leading-edge neural rendering methods.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
-    <!-- Paper video. -->
+    <!-- Framework. -->
     <div class="column is-centered has-text-centered">
       <h2 class="title is-3">Framework</h2>
     </div>
@@ -171,22 +178,20 @@
           <div class="hero-body">
             <div class="container">
                 <div style="text-align: center;">
-                  <img src="assets/framework.png" alt="Figure 1"  width="100%"/>
+                  <img src="eccv-framework_v2.png" alt="Figure 1"  width="75%"/>
                 </div>
                 <div class="content has-text-justified">
-                  <p>Illustration of our proposed method. (a) A <i>watermarked color representation</i> 
-                    is obtained with the given secret message, which is able to produce watermarked color 
-                    for rendering. (b) During training, a <i>distortion-resistant rendering</i> is deployed 
-                    to map the geometry (<span>&sigma;</span>) and watermarked color representations to image 
-                    patches with several distortions. (c) Finally, the secret message can be revealed by a 
-                    CNN-based <i>message extractor</i>.</p>
+                  <p>
+
+                    Our Plug-and-Play method to watermark NeRF during its creation. (1) Building a watermarking base model: The watermarking base model \( \mathcal{F} \) can be sourced from a third party. We implement a HiDDeN framework to get the pre-trained message extractor as our watermarking base model \( \mathcal{F} \). During the training, the encoder \( \mathcal{E} \) encodes a randomly selected 48-kit message \( \mathbf{m} \) and cover image \( \mathbf{I}_o \) and outputs a watermarked image \( \mathbf{I}_{en} \). Then the message extractor \( \mathcal{F} \) extracts embedded message \( \hat{\mathbf{m}} \) from the watermarked image. Message encoder \( \mathcal{E} \) is discarded after building watermarking base model \( \mathcal{F} \). (2) NeRF creation with message distillation: NeRF creators first fix a copyright message \( \mathbf{m} \), then employ this base model \( \mathcal{F} \) to embed selected watermarks to NeRFs during the creation process via Progressive Global Rendering (PGR) and message distillation. When the optimization of NeRF is finalized, creators immediately obtain a watermarked NeRF. (3) Extracting watermark: Subsequently, they can utilize the base model \( \mathcal{F} \) to retrieve binary watermarks from the rendered images, asserting their ownership.
+                  </p>
                 </div>
             </div>
           </div>
         </section>
       </div>
     </div>
-    <!--/ Paper video. -->
+    <!--/ Paper framework -->
 
   </div>
 </section>
@@ -194,17 +199,6 @@
 
 
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{luo2023copyrnerf,
-  author    = {Ziyuan Luo and Qing Guo and Ka Chun Cheung and Simon See and Renjie Wan},
-  title     = {Copy{RN}e{RF}: Protecting the CopyRight of Neural Radiance Fields},
-  booktitle   = {Proceedings of the IEEE/CVF International Conference on Computer Vision},
-  year      = {2023},
-}</code></pre>
-  </div>
-</section>
 
 
 <footer class="footer">
